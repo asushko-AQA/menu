@@ -129,6 +129,26 @@
     return `<a class="back-link" href="${href}">← ${label}</a>`;
   }
 
+  /** Разбивает заголовок вида "Меню на 1 неделю (завтрак + ...)" на основную и второстепенную части */
+  function splitTitle(title) {
+    if (!title || title.indexOf(' (') < 0) return null;
+    const idx = title.indexOf(' (');
+    return { main: title.slice(0, idx).trim(), sub: title.slice(idx).trim() };
+  }
+
+  /** Возвращает HTML заголовка: основная часть крупнее, второстепенная (в скобках) — мельче и бледнее */
+  function renderTitleHtml(title) {
+    const split = splitTitle(title);
+    if (!split) return escapeHtml(title);
+    return '<span class="title-main">' + escapeHtml(split.main) + '</span> <span class="title-sub">' + escapeHtml(split.sub) + '</span>';
+  }
+
+  function renderTitleBlockHtml(title) {
+    const split = splitTitle(title);
+    if (!split) return '<span class="title-main">' + escapeHtml(title) + '</span>';
+    return '<span class="title-main">' + escapeHtml(split.main) + '</span><span class="title-sub">' + escapeHtml(split.sub) + '</span>';
+  }
+
   function renderRating(slug, current) {
     const v = current != null ? current : 0;
     let html = '<div class="rating-block"><p>Оцените блюдо (учтётся при генерации меню):</p><div class="rating-stars" data-rating="' + v + '" data-slug="' + slug + '">';
@@ -153,7 +173,7 @@
     ];
     let html = '<h1 class="page-title">Меню по неделям</h1><div class="weeks-grid">';
     weekMenus.forEach(m => {
-      html += '<a href="#/menu/' + m.id + '">' + escapeHtml(m.title) + '</a>';
+      html += '<a href="#/menu/' + m.id + '" class="week-card">' + renderTitleBlockHtml(m.title) + '</a>';
     });
     html += '</div>';
     if (zakupkiIndex || zakupkiWeeks.length) {
@@ -181,7 +201,7 @@
     const rows = parseWeekTable(md);
     const zakupkiId = weekId.replace(/^nedelya-/, 'zakupki-nedelya-');
     const hasZakupki = manifest.menus.some(m => m.id === zakupkiId);
-    let html = renderBack('#/', 'На главную') + '<h1 class="page-title">' + escapeHtml(title) + '</h1>';
+    let html = renderBack('#/', 'На главную') + '<h1 class="page-title">' + renderTitleHtml(title) + '</h1>';
     if (hasZakupki) {
       html += '<p class="week-zakupki"><a href="#/list/' + zakupkiId + '">🛒 Закупки на эту неделю</a></p>';
     }
@@ -236,7 +256,8 @@
     const dayName = row ? row.dayName : DAY_NAMES[dayIndex];
     const prev = dayIndex > 0 ? dayIndex - 1 : null;
     const next = dayIndex < 6 ? dayIndex + 1 : null;
-    let html = renderBack('#/menu/' + weekId, 'Меню недели') + '<h1 class="page-title">' + escapeHtml(menu ? menu.title : weekId) + ' — ' + dayName + '</h1>';
+    const weekTitle = menu ? menu.title : weekId;
+    let html = renderBack('#/menu/' + weekId, 'Меню недели') + '<h1 class="page-title">' + renderTitleHtml(weekTitle) + ' <span class="title-day">— ' + escapeHtml(dayName) + '</span></h1>';
     html += '<div class="day-nav">';
     html += prev !== null ? '<a href="#/menu/' + weekId + '/day/' + prev + '">← ' + DAY_NAMES[prev] + '</a>' : '<span></span>';
     html += next !== null ? '<a href="#/menu/' + weekId + '/day/' + next + '">' + DAY_NAMES[next] + ' →</a>' : '<span></span>';
@@ -274,7 +295,7 @@
     if (isZakupkiWeek && manifest.menus.some(m => m.id === 'zakupki-na-nedelyu')) {
       html += ' <a class="back-link" href="#/list/zakupki-na-nedelyu">Все закупки</a>';
     }
-    html += '<h1 class="page-title">' + escapeHtml(title) + '</h1>';
+    html += '<h1 class="page-title">' + renderTitleHtml(title) + '</h1>';
     html += '<div class="dish-content">' + (window.marked ? marked.parse(md) : escapeHtml(md)) + '</div>';
     return html;
   }
