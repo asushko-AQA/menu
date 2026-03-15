@@ -1,6 +1,6 @@
 # Меню: Завтраки
 
-Раздел завтраков на основе [MenuInitial.PDF](../../MenuInitial.PDF) (см. [исходное содержание](../source/menu-initial-summary.md) и [критерии](../criteria/audience-and-constraints.md)). Всего **28 вариантов** (20 базовых + 8 новых; на 4-ю неделю используются только новые блюда).
+Раздел завтраков. Критерии: [docs/criteria/audience-and-constraints.md](../criteria/audience-and-constraints.md). Всего **28 вариантов** (20 базовых + 8 новых; на 4-ю неделю используются только новые блюда).
 
 ## Цель
 

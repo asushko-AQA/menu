@@ -200,8 +200,46 @@ body {
 .section-list { margin-top: 1.25rem; }
 .section-list h2 { font-size: 1rem; margin-bottom: 0.5rem; color: var(--muted); font-weight: 600; }
 
-/* Таблица недели: на мобильном — горизонтальный скролл, фиксированный первый столбец */
+/* Неделя: на мобильном — карточки по дням, на десктопе — таблица */
+.week-day-cards {
+  display: grid;
+  gap: 0.5rem;
+}
+.week-day-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.65rem 0.85rem;
+}
+.week-day-card-title {
+  display: block;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--accent);
+  text-decoration: none;
+  margin-bottom: 0.4rem;
+  -webkit-tap-highlight-color: transparent;
+}
+.week-day-card-title:hover { text-decoration: underline; }
+.week-day-meal {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--text);
+}
+.week-day-meal-label {
+  color: var(--muted);
+  font-size: 0.75rem;
+  display: inline-block;
+  min-width: 4.2em;
+}
+.week-day-meal a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.week-day-meal a:hover { text-decoration: underline; }
+
 .week-table-wrap {
+  display: none;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   margin: 0 -0.75rem;
@@ -246,6 +284,11 @@ body {
 .week-table a:hover { text-decoration: underline; }
 .week-table ul { margin: 0; padding-left: 1rem; }
 .week-table li { margin: 0.35rem 0; }
+
+@media (min-width: 640px) {
+  .week-day-cards { display: none; }
+  .week-table-wrap { display: block; }
+}
 
 .week-zakupki { margin: 0.5rem 0 1rem; }
 .week-zakupki a {

@@ -189,6 +189,19 @@
       html += '<div class="dish-content">' + (window.marked ? marked.parse(md) : escapeHtml(md)) + '</div>';
       return html;
     }
+    html += '<div class="week-day-cards">';
+    rows.forEach((row, dayIndex) => {
+      html += '<div class="week-day-card"><a href="#/menu/' + weekId + '/day/' + dayIndex + '" class="week-day-card-title">' + escapeHtml(row.dayName) + '</a>';
+      MEAL_HEADERS.forEach((label, i) => {
+        const meals = row.meals[i] || [];
+        html += '<div class="week-day-meal"><span class="week-day-meal-label">' + escapeHtml(label) + '</span> ';
+        if (meals.length === 0) html += '—';
+        else meals.forEach((m, j) => { html += (j ? ', ' : '') + '<a href="#/dish/' + m.slug + '">' + escapeHtml(m.title) + '</a>'; });
+        html += '</div>';
+      });
+      html += '</div>';
+    });
+    html += '</div>';
     html += '<div class="week-table-wrap"><table class="week-table"><thead><tr><th>День</th>';
     MEAL_HEADERS.forEach(h => { html += '<th>' + h + '</th>'; });
     html += '</tr></thead><tbody>';
