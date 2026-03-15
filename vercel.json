@@ -1,0 +1,5 @@
+{
+  "buildCommand": "node scripts/generate-manifest.js",
+  "outputDirectory": "web",
+  "framework": null
+}

@@ -1,0 +1,374 @@
+{
+  "generatedAt": "2026-03-15T14:14:57.224Z",
+  "menus": [
+    {
+      "id": "nedelya-1",
+      "title": "Меню на 1 неделю (завтрак + обед + полдник + ужин)",
+      "file": "menus/nedelya-1.md"
+    },
+    {
+      "id": "nedelya-2",
+      "title": "Меню на 2-ю неделю (завтрак + обед + полдник + ужин)",
+      "file": "menus/nedelya-2.md"
+    },
+    {
+      "id": "nedelya-3",
+      "title": "Меню на 3-ю неделю (завтрак + обед + полдник + ужин)",
+      "file": "menus/nedelya-3.md"
+    },
+    {
+      "id": "nedelya-4",
+      "title": "Меню на 4-ю неделю (завтрак + обед + полдник + ужин)",
+      "file": "menus/nedelya-4.md"
+    },
+    {
+      "id": "obedy",
+      "title": "Меню: Обеды",
+      "file": "menus/obedy.md"
+    },
+    {
+      "id": "poldnik",
+      "title": "Меню: Полдник",
+      "file": "menus/poldnik.md"
+    },
+    {
+      "id": "uzhiny",
+      "title": "Меню: Ужины",
+      "file": "menus/uzhiny.md"
+    },
+    {
+      "id": "zakupki-na-nedelyu",
+      "title": "Закупки на неделю: продукты и количество",
+      "file": "menus/zakupki-na-nedelyu.md"
+    },
+    {
+      "id": "zakupki-nedelya-1",
+      "title": "Закупки на 1-ю неделю",
+      "file": "menus/zakupki-nedelya-1.md"
+    },
+    {
+      "id": "zakupki-nedelya-2",
+      "title": "Закупки на 2-ю неделю",
+      "file": "menus/zakupki-nedelya-2.md"
+    },
+    {
+      "id": "zakupki-nedelya-3",
+      "title": "Закупки на 3-ю неделю",
+      "file": "menus/zakupki-nedelya-3.md"
+    },
+    {
+      "id": "zakupki-nedelya-4",
+      "title": "Закупки на 4-ю неделю",
+      "file": "menus/zakupki-nedelya-4.md"
+    },
+    {
+      "id": "zavtraki",
+      "title": "Меню: Завтраки",
+      "file": "menus/zavtraki.md"
+    }
+  ],
+  "dishes": [
+    {
+      "slug": "bananovoe-pechene-pp",
+      "file": "dishes/bananovoe-pechene-pp.md"
+    },
+    {
+      "slug": "bananovye-oladi",
+      "file": "dishes/bananovye-oladi.md"
+    },
+    {
+      "slug": "befstroganov-bl-slivki",
+      "file": "dishes/befstroganov-bl-slivki.md"
+    },
+    {
+      "slug": "bliny-bl-moloko",
+      "file": "dishes/bliny-bl-moloko.md"
+    },
+    {
+      "slug": "borshch",
+      "file": "dishes/borshch.md"
+    },
+    {
+      "slug": "chaj-travyanoj-pechene-poldnik",
+      "file": "dishes/chaj-travyanoj-pechene-poldnik.md"
+    },
+    {
+      "slug": "domashnie-naggetsy",
+      "file": "dishes/domashnie-naggetsy.md"
+    },
+    {
+      "slug": "domashnyaya-granola",
+      "file": "dishes/domashnyaya-granola.md"
+    },
+    {
+      "slug": "farshirovannyj-perets",
+      "file": "dishes/farshirovannyj-perets.md"
+    },
+    {
+      "slug": "file-ryby-syrnaya-shapka",
+      "file": "dishes/file-ryby-syrnaya-shapka.md"
+    },
+    {
+      "slug": "frukty-orekhi-poldnik",
+      "file": "dishes/frukty-orekhi-poldnik.md"
+    },
+    {
+      "slug": "gorjachie-buterbrody-lodki",
+      "file": "dishes/gorjachie-buterbrody-lodki.md"
+    },
+    {
+      "slug": "gorohovyj-sup",
+      "file": "dishes/gorohovyj-sup.md"
+    },
+    {
+      "slug": "grechka-po-kupcheski",
+      "file": "dishes/grechka-po-kupcheski.md"
+    },
+    {
+      "slug": "grenka-pp-tvorog-frukty",
+      "file": "dishes/grenka-pp-tvorog-frukty.md"
+    },
+    {
+      "slug": "grenki-bl-syr",
+      "file": "dishes/grenki-bl-syr.md"
+    },
+    {
+      "slug": "gulyash-kartofel",
+      "file": "dishes/gulyash-kartofel.md"
+    },
+    {
+      "slug": "indeyka-ovoshchi-skovoroda",
+      "file": "dishes/indeyka-ovoshchi-skovoroda.md"
+    },
+    {
+      "slug": "jogurt-bl-frukty-poldnik",
+      "file": "dishes/jogurt-bl-frukty-poldnik.md"
+    },
+    {
+      "slug": "kabachkovye-oladi",
+      "file": "dishes/kabachkovye-oladi.md"
+    },
+    {
+      "slug": "kakao-pechene-poldnik",
+      "file": "dishes/kakao-pechene-poldnik.md"
+    },
+    {
+      "slug": "kartofelnaya-zapekanka-ryba",
+      "file": "dishes/kartofelnaya-zapekanka-ryba.md"
+    },
+    {
+      "slug": "kisel-yagodnyj",
+      "file": "dishes/kisel-yagodnyj.md"
+    },
+    {
+      "slug": "krasnaya-ryba-brokkoli",
+      "file": "dishes/krasnaya-ryba-brokkoli.md"
+    },
+    {
+      "slug": "kukuruznaya-kasha-syr",
+      "file": "dishes/kukuruznaya-kasha-syr.md"
+    },
+    {
+      "slug": "kurinaya-grudka-tomatnyj-bazilik",
+      "file": "dishes/kurinaya-grudka-tomatnyj-bazilik.md"
+    },
+    {
+      "slug": "kurinoe-file-soevomed-sous-ris",
+      "file": "dishes/kurinoe-file-soevomed-sous-ris.md"
+    },
+    {
+      "slug": "kurinye-makarony-odna-kastryulya",
+      "file": "dishes/kurinye-makarony-odna-kastryulya.md"
+    },
+    {
+      "slug": "kurinye-oladi-rublenye",
+      "file": "dishes/kurinye-oladi-rublenye.md"
+    },
+    {
+      "slug": "kurinyj-sup-lapsha",
+      "file": "dishes/kurinyj-sup-lapsha.md"
+    },
+    {
+      "slug": "lenivaya-ovsyanka-banki",
+      "file": "dishes/lenivaya-ovsyanka-banki.md"
+    },
+    {
+      "slug": "lenivye-golubtsy",
+      "file": "dishes/lenivye-golubtsy.md"
+    },
+    {
+      "slug": "lenivye-vareniki",
+      "file": "dishes/lenivye-vareniki.md"
+    },
+    {
+      "slug": "makarony-po-flotski",
+      "file": "dishes/makarony-po-flotski.md"
+    },
+    {
+      "slug": "mannaya-kasha-yagodnyj-sous",
+      "file": "dishes/mannaya-kasha-yagodnyj-sous.md"
+    },
+    {
+      "slug": "mjusli-bl-jogurt",
+      "file": "dishes/mjusli-bl-jogurt.md"
+    },
+    {
+      "slug": "myasnye-gnezda-bl-syr",
+      "file": "dishes/myasnye-gnezda-bl-syr.md"
+    },
+    {
+      "slug": "omlet-ovoshchi-duhovka",
+      "file": "dishes/omlet-ovoshchi-duhovka.md"
+    },
+    {
+      "slug": "ovsyanka-karamel-yabloki",
+      "file": "dishes/ovsyanka-karamel-yabloki.md"
+    },
+    {
+      "slug": "ovsyanoblin",
+      "file": "dishes/ovsyanoblin.md"
+    },
+    {
+      "slug": "ovsyanoe-pechene-finiki",
+      "file": "dishes/ovsyanoe-pechene-finiki.md"
+    },
+    {
+      "slug": "ovsyanoe-pechene-kakao",
+      "file": "dishes/ovsyanoe-pechene-kakao.md"
+    },
+    {
+      "slug": "ovsyanye-batonchiki-bez-vypechki",
+      "file": "dishes/ovsyanye-batonchiki-bez-vypechki.md"
+    },
+    {
+      "slug": "pankeyki-bl-moloko",
+      "file": "dishes/pankeyki-bl-moloko.md"
+    },
+    {
+      "slug": "pasta-tunets",
+      "file": "dishes/pasta-tunets.md"
+    },
+    {
+      "slug": "plov-kuritsa",
+      "file": "dishes/plov-kuritsa.md"
+    },
+    {
+      "slug": "pshennaya-kasha-tykva",
+      "file": "dishes/pshennaya-kasha-tykva.md"
+    },
+    {
+      "slug": "ratatuj",
+      "file": "dishes/ratatuj.md"
+    },
+    {
+      "slug": "risovaya-kasha-yagody",
+      "file": "dishes/risovaya-kasha-yagody.md"
+    },
+    {
+      "slug": "rizovaya-zapekanka-yabloki",
+      "file": "dishes/rizovaya-zapekanka-yabloki.md"
+    },
+    {
+      "slug": "ryba-folga-limon",
+      "file": "dishes/ryba-folga-limon.md"
+    },
+    {
+      "slug": "ryba-kartofel-gorshochki",
+      "file": "dishes/ryba-kartofel-gorshochki.md"
+    },
+    {
+      "slug": "rybnye-kotlety",
+      "file": "dishes/rybnye-kotlety.md"
+    },
+    {
+      "slug": "rybnye-palochki-domashnie",
+      "file": "dishes/rybnye-palochki-domashnie.md"
+    },
+    {
+      "slug": "rybnyj-sup",
+      "file": "dishes/rybnyj-sup.md"
+    },
+    {
+      "slug": "shakshuka",
+      "file": "dishes/shakshuka.md"
+    },
+    {
+      "slug": "shi-kapusta",
+      "file": "dishes/shi-kapusta.md"
+    },
+    {
+      "slug": "skrembl-avokado-ogurets",
+      "file": "dishes/skrembl-avokado-ogurets.md"
+    },
+    {
+      "slug": "smuzi-yagodnyj-bl",
+      "file": "dishes/smuzi-yagodnyj-bl.md"
+    },
+    {
+      "slug": "spagetti-boloneze",
+      "file": "dishes/spagetti-boloneze.md"
+    },
+    {
+      "slug": "sup-s-frikadelkami",
+      "file": "dishes/sup-s-frikadelkami.md"
+    },
+    {
+      "slug": "svinnye-otbivnye-luk",
+      "file": "dishes/svinnye-otbivnye-luk.md"
+    },
+    {
+      "slug": "syrniki-bl-tvorog",
+      "file": "dishes/syrniki-bl-tvorog.md"
+    },
+    {
+      "slug": "tefteli-tomatnyj-sous",
+      "file": "dishes/tefteli-tomatnyj-sous.md"
+    },
+    {
+      "slug": "tost-yaichnyj-salat",
+      "file": "dishes/tost-yaichnyj-salat.md"
+    },
+    {
+      "slug": "tvorog-banan-orekhi",
+      "file": "dishes/tvorog-banan-orekhi.md"
+    },
+    {
+      "slug": "tvorog-bl-frukty-poldnik",
+      "file": "dishes/tvorog-bl-frukty-poldnik.md"
+    },
+    {
+      "slug": "tvorozhnaya-zapekanka-manka",
+      "file": "dishes/tvorozhnaya-zapekanka-manka.md"
+    },
+    {
+      "slug": "yabloki-zapechyonnye-tvorog",
+      "file": "dishes/yabloki-zapechyonnye-tvorog.md"
+    },
+    {
+      "slug": "yaichnitsa-glazunya-tosty",
+      "file": "dishes/yaichnitsa-glazunya-tosty.md"
+    },
+    {
+      "slug": "yaichnye-maffiny",
+      "file": "dishes/yaichnye-maffiny.md"
+    },
+    {
+      "slug": "yajtso-v-oblake",
+      "file": "dishes/yajtso-v-oblake.md"
+    },
+    {
+      "slug": "zapech-goleni-kartofel",
+      "file": "dishes/zapech-goleni-kartofel.md"
+    },
+    {
+      "slug": "zharkoe-svinina-kabachki",
+      "file": "dishes/zharkoe-svinina-kabachki.md"
+    }
+  ],
+  "tips": [
+    {
+      "id": "zagotovki",
+      "file": "tips/zagotovki.md"
+    }
+  ]
+}

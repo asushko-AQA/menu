@@ -1,0 +1,9 @@
+# Netlify: при подключении репозитория эти настройки подхватятся автоматически.
+# Публикуется папка web; перед сборкой генерируется манифест и копируется контент.
+
+[build]
+  command = "node scripts/generate-manifest.js"
+  publish = "web"
+
+[build.environment]
+  NODE_VERSION = "20"
