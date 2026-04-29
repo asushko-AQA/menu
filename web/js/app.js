@@ -379,7 +379,7 @@
 
   /** Преобразует ссылки из .md в хеш-маршруты: блюда → карточка, меню недели → страница недели, закупки/разделы → list */
   function rewriteContentLinks(container) {
-    const weekIds = ['nedelya-1', 'nedelya-2', 'nedelya-3', 'nedelya-4'];
+    const weekIds = ['nedelya-1', 'nedelya-2', 'nedelya-3', 'nedelya-4', 'nedelya-5'];
     container.querySelectorAll('a[href*="dishes/"], a[href*="/dishes/"]').forEach(a => {
       const href = a.getAttribute('href');
       const slugMatch = href.match(/dishes\/([^/)]+)\.md/);

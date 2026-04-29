@@ -42,7 +42,7 @@ function getFirstLineTitle(filePath) {
   return m ? m[1].trim() : path.basename(filePath, '.md');
 }
 
-// Меню по неделям: nedelya-1 ... nedelya-4 и прочие
+// Меню по неделям: nedelya-1 … nedelya-5 и прочие (все .md из docs/menus)
 const menusDir = path.join(DOCS, 'menus');
 const menuFiles = listMd(menusDir);
 const menus = menuFiles.map(f => {

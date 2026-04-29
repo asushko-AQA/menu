@@ -75,4 +75,4 @@
 - Обеды (супы на 3 дня): [docs/menus/obedy.md](../menus/obedy.md)
 - Полдник: [docs/menus/poldnik.md](../menus/poldnik.md)
 - Ужины: [docs/menus/uzhiny.md](../menus/uzhiny.md)
-- Меню на неделю: [nedelya-1.md](../menus/nedelya-1.md), [nedelya-2.md](../menus/nedelya-2.md), [nedelya-3.md](../menus/nedelya-3.md), [nedelya-4.md](../menus/nedelya-4.md)
+- Меню на неделю: [nedelya-1.md](../menus/nedelya-1.md) … [nedelya-5.md](../menus/nedelya-5.md)

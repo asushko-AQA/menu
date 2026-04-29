@@ -14,10 +14,11 @@
 
 | Неделя | Меню | Закупки |
 |--------|------|---------|
-| 1-я | [nedelya-1.md](nedelya-1.md) — борщ (Пн–Ср), куриный суп с лапшой (Чт–Сб) | [zakupki-nedelya-1.md](zakupki-nedelya-1.md) |
-| 2-я | [nedelya-2.md](nedelya-2.md) — гороховый суп (Пн–Ср), щи (Чт–Сб) | [zakupki-nedelya-2.md](zakupki-nedelya-2.md) |
+| 1-я | [nedelya-1.md](nedelya-1.md) — гороховый суп (Пн–Ср), щи (Чт–Сб) | [zakupki-nedelya-1.md](zakupki-nedelya-1.md) |
+| 2-я | [nedelya-2.md](nedelya-2.md) — борщ (Пн–Ср), куриный суп с лапшой (Чт–Сб) | [zakupki-nedelya-2.md](zakupki-nedelya-2.md) |
 | 3-я | [nedelya-3.md](nedelya-3.md) — рыбный суп (Пн–Ср), суп с фрикадельками (Чт–Сб) | [zakupki-nedelya-3.md](zakupki-nedelya-3.md) |
 | 4-я | [nedelya-4.md](nedelya-4.md) — борщ (Пн–Ср), щи (Чт–Сб) | [zakupki-nedelya-4.md](zakupki-nedelya-4.md) |
+| 5-я | [nedelya-5.md](nedelya-5.md) — чечевичный суп (Пн–Ср), куриный суп с лапшой (Чт–Сб) | [zakupki-nedelya-5.md](zakupki-nedelya-5.md) |
 
 Каждый файл закупок ссылается на соответствующее меню недели и обратно на этот индекс.
 
@@ -25,7 +26,7 @@
 
 ## Как пользоваться
 
-1. **Выбрать неделю** — перейти по ссылке из таблицы выше: [Неделя 1](zakupki-nedelya-1.md), [Неделя 2](zakupki-nedelya-2.md), [Неделя 3](zakupki-nedelya-3.md), [Неделя 4](zakupki-nedelya-4.md).
+1. **Выбрать неделю** — перейти по ссылке из таблицы выше: недели [1](zakupki-nedelya-1.md) · [2](zakupki-nedelya-2.md) · [3](zakupki-nedelya-3.md) · [4](zakupki-nedelya-4.md) · [5](zakupki-nedelya-5.md).
 2. **Фрукты на перекусы** — в каждой неделе заложено **1,5–2 кг** фруктов для перекусов детей вне основных приёмов пищи.
 3. **Уточнить по карточкам** — граммовки можно сверить по блюдам в [docs/dishes/](../dishes/) (блок «Ингредиенты»). Супы — на 15 порций (3 дня), печенье/кисель — на 2–3 дня.
 4. **Округлить под магазин** — объёмы ориентировочные; округлять до удобных упаковок.

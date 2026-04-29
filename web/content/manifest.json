@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-04-29T20:49:51.290Z",
+  "generatedAt": "2026-04-29T22:07:32.048Z",
   "menus": [
     {
       "id": "nedelya-1",
-      "title": "Меню на 1 неделю (завтрак + обед + полдник + ужин)",
+      "title": "Меню на 1-ю неделю (завтрак + обед + полдник + ужин)",
       "file": "menus/nedelya-1.md"
     },
     {
@@ -20,6 +20,11 @@
       "id": "nedelya-4",
       "title": "Меню на 4-ю неделю (завтрак + обед + полдник + ужин)",
       "file": "menus/nedelya-4.md"
+    },
+    {
+      "id": "nedelya-5",
+      "title": "Меню на 5-ю неделю (завтрак + обед + полдник + ужин)",
+      "file": "menus/nedelya-5.md"
     },
     {
       "id": "obedy",
@@ -62,6 +67,11 @@
       "file": "menus/zakupki-nedelya-4.md"
     },
     {
+      "id": "zakupki-nedelya-5",
+      "title": "Закупки на 5-ю неделю",
+      "file": "menus/zakupki-nedelya-5.md"
+    },
+    {
       "id": "zavtraki",
       "title": "Меню: Завтраки",
       "file": "menus/zavtraki.md"
@@ -93,6 +103,18 @@
       "file": "dishes/chaj-travyanoj-pechene-poldnik.md"
     },
     {
+      "slug": "chechevichnyj-sup",
+      "file": "dishes/chechevichnyj-sup.md"
+    },
+    {
+      "slug": "chia-puding-bl",
+      "file": "dishes/chia-puding-bl.md"
+    },
+    {
+      "slug": "cvetnaya-kapusta-zapekanka-kuritsa",
+      "file": "dishes/cvetnaya-kapusta-zapekanka-kuritsa.md"
+    },
+    {
       "slug": "domashnie-naggetsy",
       "file": "dishes/domashnie-naggetsy.md"
     },
@@ -109,6 +131,10 @@
       "file": "dishes/file-ryby-syrnaya-shapka.md"
     },
     {
+      "slug": "fruktovye-roll-lavash",
+      "file": "dishes/fruktovye-roll-lavash.md"
+    },
+    {
       "slug": "frukty-orekhi-poldnik",
       "file": "dishes/frukty-orekhi-poldnik.md"
     },
@@ -123,6 +149,10 @@
     {
       "slug": "grechka-po-kupcheski",
       "file": "dishes/grechka-po-kupcheski.md"
+    },
+    {
+      "slug": "grechnevye-bliny-bl-moloko",
+      "file": "dishes/grechnevye-bliny-bl-moloko.md"
     },
     {
       "slug": "grenka-pp-tvorog-frukty",
@@ -187,6 +217,10 @@
     {
       "slug": "kurinyj-sup-lapsha",
       "file": "dishes/kurinyj-sup-lapsha.md"
+    },
+    {
+      "slug": "kurochka-vok-risovaya-lapsha",
+      "file": "dishes/kurochka-vok-risovaya-lapsha.md"
     },
     {
       "slug": "lenivaya-ovsyanka-banki",
@@ -257,6 +291,10 @@
       "file": "dishes/pshennaya-kasha-tykva.md"
     },
     {
+      "slug": "ragyu-nut-kuritsa",
+      "file": "dishes/ragyu-nut-kuritsa.md"
+    },
+    {
       "slug": "ratatuj",
       "file": "dishes/ratatuj.md"
     },
@@ -285,6 +323,10 @@
       "file": "dishes/rybnye-palochki-domashnie.md"
     },
     {
+      "slug": "rybnye-tefteli-tomat",
+      "file": "dishes/rybnye-tefteli-tomat.md"
+    },
+    {
       "slug": "rybnyj-sup",
       "file": "dishes/rybnyj-sup.md"
     },
@@ -299,6 +341,10 @@
     {
       "slug": "skrembl-avokado-ogurets",
       "file": "dishes/skrembl-avokado-ogurets.md"
+    },
+    {
+      "slug": "skumbriya-kartofel-duhovka",
+      "file": "dishes/skumbriya-kartofel-duhovka.md"
     },
     {
       "slug": "smuzi-yagodnyj-bl",
@@ -325,6 +371,10 @@
       "file": "dishes/tefteli-tomatnyj-sous.md"
     },
     {
+      "slug": "tost-hummus-yajtso",
+      "file": "dishes/tost-hummus-yajtso.md"
+    },
+    {
       "slug": "tost-yaichnyj-salat",
       "file": "dishes/tost-yaichnyj-salat.md"
     },
@@ -335,6 +385,10 @@
     {
       "slug": "tvorog-bl-frukty-poldnik",
       "file": "dishes/tvorog-bl-frukty-poldnik.md"
+    },
+    {
+      "slug": "tvorozhnaya-namazka-hleb",
+      "file": "dishes/tvorozhnaya-namazka-hleb.md"
     },
     {
       "slug": "tvorozhnaya-zapekanka-manka",
