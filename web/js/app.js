@@ -1,10 +1,21 @@
 (function () {
+  const APP_BASE_PATH = detectAppBasePath();
+
+  function detectAppBasePath() {
+    const path = window.location.pathname || '/';
+    const idx = path.indexOf('/menu');
+    return idx >= 0 ? '/menu' : '';
+  }
+
+  function appPath(routePath) {
+    const normalized = routePath === '/' ? '/' : '/' + String(routePath || '').replace(/^\/+|\/+$/g, '');
+    return (APP_BASE_PATH || '') + normalized;
+  }
+
   // Путь к content/ относительно текущей страницы (при открытии по HTTP)
   function getContentBase() {
-    const href = window.location.href;
-    const lastSlash = href.lastIndexOf('/');
-    const path = lastSlash >= 0 ? href.slice(0, lastSlash + 1) : href + '/';
-    return path + 'content/';
+    const base = window.location.origin + appPath('/');
+    return base.replace(/\/+$/, '/') + 'content/';
   }
   const CONTENT_BASE = getContentBase();
   const RATINGS_KEY = 'menu-dish-ratings';
@@ -16,8 +27,12 @@
   const MEAL_KEYS = ['breakfast', 'lunch', 'snack', 'dinner'];
   const MEAL_HEADERS = ['Завтрак', 'Обед', 'Полдник', 'Ужин'];
 
-  function getHashRoute() {
-    const raw = (window.location.hash.slice(1) || '/').replace(/^\/+|\/+$/g, '');
+  function getPathRoute() {
+    let pathname = window.location.pathname || '/';
+    if (APP_BASE_PATH && pathname.startsWith(APP_BASE_PATH)) {
+      pathname = pathname.slice(APP_BASE_PATH.length) || '/';
+    }
+    const raw = pathname.replace(/^\/+|\/+$/g, '');
     const parts = raw ? raw.split('/') : [];
     if (parts[0] === 'menu' && parts[1] && parts[2] === 'day' && parts[3] != null)
       return { view: 'day', weekId: parts[1], dayIndex: parseInt(parts[3], 10) };
@@ -26,6 +41,22 @@
     if (parts[0] === 'list' && parts[1]) return { view: 'list', listId: parts[1] };
     if (parts[0] === 'tips' && parts[1]) return { view: 'tips', tipId: parts[1] };
     return { view: 'home' };
+  }
+
+  function navigateTo(path, replace) {
+    const target = appPath(path);
+    const current = window.location.pathname + window.location.search + window.location.hash;
+    if (current === target) return;
+    if (replace) history.replaceState(null, '', target);
+    else history.pushState(null, '', target);
+    render();
+  }
+
+  function migrateLegacyHashRoute() {
+    const hash = window.location.hash || '';
+    if (!hash.startsWith('#/')) return;
+    const route = hash.slice(1);
+    navigateTo(route, true);
   }
 
   function getRatings() {
@@ -51,8 +82,7 @@
 
   async function loadFileRatings() {
     try {
-      const json = await fetchText('data/ratings.json');
-      const data = JSON.parse(json);
+      const data = await fetchJson('data/ratings.json');
       if (data.ratings && Array.isArray(data.ratings)) {
         fileRatings = {};
         data.ratings.forEach(({ slug, rating }) => { if (slug != null) fileRatings[slug] = rating; });
@@ -75,17 +105,38 @@
     URL.revokeObjectURL(a.href);
   }
 
-  async function fetchText(url) {
+  async function fetchResource(url) {
     const fullUrl = (url.startsWith('http') || url.startsWith('//')) ? url : (CONTENT_BASE + url);
     const res = await fetch(fullUrl);
     if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
-    return res.text();
+    const text = await res.text();
+    return { text, contentType: res.headers.get('content-type') || '', fullUrl };
+  }
+
+  async function fetchText(url) {
+    const data = await fetchResource(url);
+    return data.text;
+  }
+
+  async function fetchJson(url) {
+    const { text, contentType, fullUrl } = await fetchResource(url);
+    const isHtml = /^\s*</.test(text);
+    if (isHtml) {
+      throw new Error('Ожидался JSON, но получен HTML: ' + fullUrl);
+    }
+    if (contentType && !contentType.toLowerCase().includes('json')) {
+      throw new Error('Ожидался JSON, но Content-Type=' + contentType + ': ' + fullUrl);
+    }
+    try {
+      return JSON.parse(text);
+    } catch (err) {
+      throw new Error('Некорректный JSON в ' + fullUrl + ': ' + (err && err.message ? err.message : 'parse error'));
+    }
   }
 
   async function loadManifest() {
     if (manifest) return manifest;
-    const json = await fetchText('manifest.json');
-    manifest = JSON.parse(json);
+    manifest = await fetchJson('manifest.json');
     return manifest;
   }
 
@@ -173,23 +224,23 @@
     ];
     let html = '<h1 class="page-title">Меню по неделям</h1><div class="weeks-grid">';
     weekMenus.forEach(m => {
-      html += '<a href="#/menu/' + m.id + '" class="week-card">' + renderTitleBlockHtml(m.title) + '</a>';
+      html += '<a href="' + appPath('/menu/' + m.id) + '" class="week-card">' + renderTitleBlockHtml(m.title) + '</a>';
     });
     html += '</div>';
     if (zakupkiIndex || zakupkiWeeks.length) {
       html += '<div class="section-list"><h2>Закупки на неделю</h2><div class="weeks-grid">';
       if (zakupkiIndex) {
-        html += '<a href="#/list/zakupki-na-nedelyu" class="list-card">Все закупки (обзор)</a>';
+        html += '<a href="' + appPath('/list/zakupki-na-nedelyu') + '" class="list-card">Все закупки (обзор)</a>';
       }
       zakupkiWeeks.forEach(m => {
         const n = m.id.replace('zakupki-nedelya-', '');
-        html += '<a href="#/list/' + m.id + '" class="list-card">Закупки на ' + n + '-ю неделю</a>';
+        html += '<a href="' + appPath('/list/' + m.id) + '" class="list-card">Закупки на ' + n + '-ю неделю</a>';
       });
       html += '</div></div>';
     }
     html += '<div class="section-list"><h2>Разделы меню</h2><div class="weeks-grid">';
     sections.forEach(s => {
-      html += '<a href="#/list/' + s.id + '" class="list-card">' + escapeHtml(s.label) + '</a>';
+      html += '<a href="' + appPath('/list/' + s.id) + '" class="list-card">' + escapeHtml(s.label) + '</a>';
     });
     html += '</div></div>';
     return html;
@@ -201,9 +252,9 @@
     const rows = parseWeekTable(md);
     const zakupkiId = weekId.replace(/^nedelya-/, 'zakupki-nedelya-');
     const hasZakupki = manifest.menus.some(m => m.id === zakupkiId);
-    let html = renderBack('#/', 'На главную') + '<h1 class="page-title">' + renderTitleHtml(title) + '</h1>';
+    let html = renderBack(appPath('/'), 'На главную') + '<h1 class="page-title">' + renderTitleHtml(title) + '</h1>';
     if (hasZakupki) {
-      html += '<p class="week-zakupki"><a href="#/list/' + zakupkiId + '">🛒 Закупки на эту неделю</a></p>';
+      html += '<p class="week-zakupki"><a href="' + appPath('/list/' + zakupkiId) + '">🛒 Закупки на эту неделю</a></p>';
     }
     if (rows.length === 0) {
       html += '<div class="dish-content">' + (window.marked ? marked.parse(md) : escapeHtml(md)) + '</div>';
@@ -211,12 +262,12 @@
     }
     html += '<div class="week-day-cards">';
     rows.forEach((row, dayIndex) => {
-      html += '<div class="week-day-card"><a href="#/menu/' + weekId + '/day/' + dayIndex + '" class="week-day-card-title">' + escapeHtml(row.dayName) + '</a>';
+      html += '<div class="week-day-card"><a href="' + appPath('/menu/' + weekId + '/day/' + dayIndex) + '" class="week-day-card-title">' + escapeHtml(row.dayName) + '</a>';
       MEAL_HEADERS.forEach((label, i) => {
         const meals = row.meals[i] || [];
         html += '<div class="week-day-meal"><span class="week-day-meal-label">' + escapeHtml(label) + '</span> ';
         if (meals.length === 0) html += '—';
-        else meals.forEach((m, j) => { html += (j ? ', ' : '') + '<a href="#/dish/' + m.slug + '">' + escapeHtml(m.title) + '</a>'; });
+        else meals.forEach((m, j) => { html += (j ? ', ' : '') + '<a href="' + appPath('/dish/' + m.slug) + '">' + escapeHtml(m.title) + '</a>'; });
         html += '</div>';
       });
       html += '</div>';
@@ -226,14 +277,14 @@
     MEAL_HEADERS.forEach(h => { html += '<th>' + h + '</th>'; });
     html += '</tr></thead><tbody>';
     rows.forEach((row, dayIndex) => {
-      html += '<tr><td><a href="#/menu/' + weekId + '/day/' + dayIndex + '">' + escapeHtml(row.dayName) + '</a></td>';
+      html += '<tr><td><a href="' + appPath('/menu/' + weekId + '/day/' + dayIndex) + '">' + escapeHtml(row.dayName) + '</a></td>';
       row.meals.forEach(meals => {
         html += '<td>';
         if (meals.length === 0) html += '—';
         else {
           html += '<ul>';
           meals.forEach(m => {
-            html += '<li><a href="#/dish/' + m.slug + '">' + escapeHtml(m.title) + '</a></li>';
+            html += '<li><a href="' + appPath('/dish/' + m.slug) + '">' + escapeHtml(m.title) + '</a></li>';
           });
           html += '</ul>';
         }
@@ -257,17 +308,17 @@
     const prev = dayIndex > 0 ? dayIndex - 1 : null;
     const next = dayIndex < 6 ? dayIndex + 1 : null;
     const weekTitle = menu ? menu.title : weekId;
-    let html = renderBack('#/menu/' + weekId, 'Меню недели') + '<h1 class="page-title">' + renderTitleHtml(weekTitle) + ' <span class="title-day">— ' + escapeHtml(dayName) + '</span></h1>';
+    let html = renderBack(appPath('/menu/' + weekId), 'Меню недели') + '<h1 class="page-title">' + renderTitleHtml(weekTitle) + ' <span class="title-day">— ' + escapeHtml(dayName) + '</span></h1>';
     html += '<div class="day-nav">';
-    html += prev !== null ? '<a href="#/menu/' + weekId + '/day/' + prev + '">← ' + DAY_NAMES[prev] + '</a>' : '<span></span>';
-    html += next !== null ? '<a href="#/menu/' + weekId + '/day/' + next + '">' + DAY_NAMES[next] + ' →</a>' : '<span></span>';
+    html += prev !== null ? '<a href="' + appPath('/menu/' + weekId + '/day/' + prev) + '">← ' + DAY_NAMES[prev] + '</a>' : '<span></span>';
+    html += next !== null ? '<a href="' + appPath('/menu/' + weekId + '/day/' + next) + '">' + DAY_NAMES[next] + ' →</a>' : '<span></span>';
     html += '</div><div class="day-meals">';
     MEAL_HEADERS.forEach((label, i) => {
       const meals = row && row.meals[i] ? row.meals[i] : [];
       html += '<div class="day-meal"><h3>' + label + '</h3>';
       if (meals.length === 0) html += '—';
       else meals.forEach(m => {
-        html += '<div><a href="#/dish/' + m.slug + '">' + escapeHtml(m.title) + '</a></div>';
+        html += '<div><a href="' + appPath('/dish/' + m.slug) + '">' + escapeHtml(m.title) + '</a></div>';
       });
       html += '</div>';
     });
@@ -277,8 +328,8 @@
 
   function renderDish(slug, md, fromWeekId, fromDayIndex) {
     const backHref = fromWeekId != null && fromDayIndex != null
-      ? '#/menu/' + fromWeekId + '/day/' + fromDayIndex
-      : '#/';
+      ? appPath('/menu/' + fromWeekId + '/day/' + fromDayIndex)
+      : appPath('/');
     const backLabel = fromWeekId != null ? 'День' : 'На главную';
     const rating = getRating(slug);
     let html = renderBack(backHref, backLabel) + '<div class="dish-content">';
@@ -291,9 +342,9 @@
     const menu = manifest.menus.find(m => m.id === listId);
     const title = menu ? menu.title : listId;
     const isZakupkiWeek = /^zakupki-nedelya-\d+$/.test(listId);
-    let html = renderBack('#/', 'На главную');
+    let html = renderBack(appPath('/'), 'На главную');
     if (isZakupkiWeek && manifest.menus.some(m => m.id === 'zakupki-na-nedelyu')) {
-      html += ' <a class="back-link" href="#/list/zakupki-na-nedelyu">Все закупки</a>';
+      html += ' <a class="back-link" href="' + appPath('/list/zakupki-na-nedelyu') + '">Все закупки</a>';
     }
     html += '<h1 class="page-title">' + renderTitleHtml(title) + '</h1>';
     html += '<div class="dish-content">' + (window.marked ? marked.parse(md) : escapeHtml(md)) + '</div>';
@@ -301,7 +352,7 @@
   }
 
   function renderTips(tipId, md) {
-    let html = renderBack('#/', 'На главную') + '<h1 class="page-title">Заготовки</h1>';
+    let html = renderBack(appPath('/'), 'На главную') + '<h1 class="page-title">Заготовки</h1>';
     html += '<div class="dish-content">' + (window.marked ? marked.parse(md) : escapeHtml(md)) + '</div>';
     return html;
   }
@@ -333,29 +384,29 @@
       const href = a.getAttribute('href');
       const slugMatch = href.match(/dishes\/([^/)]+)\.md/);
       if (slugMatch) {
-        a.setAttribute('href', '#/dish/' + slugMatch[1].replace(/\.md$/, ''));
+        a.setAttribute('href', appPath('/dish/' + slugMatch[1].replace(/\.md$/, '')));
         a.removeAttribute('target');
       }
     });
     container.querySelectorAll('a[href]').forEach(a => {
       const href = a.getAttribute('href');
-      if (!href || href.startsWith('#') || href.startsWith('http')) return;
+      if (!href || href.startsWith('http')) return;
       const mdMatch = href.match(/([^/]+)\.md$/);
       if (!mdMatch) return;
       const id = mdMatch[1];
       if (manifest.dishes.some(d => d.slug === id)) {
-        a.setAttribute('href', '#/dish/' + id);
+        a.setAttribute('href', appPath('/dish/' + id));
       } else if (weekIds.includes(id)) {
-        a.setAttribute('href', '#/menu/' + id);
+        a.setAttribute('href', appPath('/menu/' + id));
       } else if (manifest.menus.some(m => m.id === id)) {
-        a.setAttribute('href', '#/list/' + id);
+        a.setAttribute('href', appPath('/list/' + id));
       }
     });
   }
 
   async function render() {
     const main = document.getElementById('main');
-    const route = getHashRoute();
+    const route = getPathRoute();
 
     if (window.location.protocol === 'file:') {
       main.innerHTML = '<div class="error">' +
@@ -460,18 +511,45 @@
 
   // При переходе на карточку блюда из дня — запомнить контекст для кнопки «Назад»
   document.addEventListener('click', e => {
-    const a = e.target.closest('a[href^="#/dish/"]');
+    const a = e.target.closest('a[href]');
     if (!a) return;
-    const path = window.location.hash;
-    const dayMatch = path.match(/#\/menu\/([^/]+)\/day\/(\d+)/);
+    const href = a.getAttribute('href') || '';
+    const target = new URL(href, window.location.origin + window.location.pathname);
+    const appBase = APP_BASE_PATH || '';
+    const routePath = appBase && target.pathname.startsWith(appBase)
+      ? target.pathname.slice(appBase.length) || '/'
+      : target.pathname;
+    if (!/^\/dish\/[^/]+/.test(routePath)) return;
+    const dayMatch = window.location.pathname.match(/\/menu\/([^/]+)\/day\/(\d+)/);
     if (dayMatch) {
       sessionStorage.setItem('fromWeek', dayMatch[1]);
       sessionStorage.setItem('fromDay', dayMatch[2]);
     }
   });
 
-  window.addEventListener('hashchange', render);
-  window.addEventListener('load', render);
+  // SPA-навигация по внутренним ссылкам без перезагрузки.
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href]');
+    if (!a) return;
+    if (a.target && a.target !== '_self') return;
+    if (a.hasAttribute('download')) return;
+    const href = a.getAttribute('href');
+    if (!href || href.startsWith('http') || href.startsWith('//') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+    if (!(href.startsWith('/') || href.startsWith('./') || href.startsWith('../'))) return;
+    const url = new URL(href, window.location.origin + window.location.pathname);
+    if (url.origin !== window.location.origin) return;
+    const appBase = APP_BASE_PATH || '';
+    if (appBase && !url.pathname.startsWith(appBase + '/')
+      && url.pathname !== appBase) return;
+    e.preventDefault();
+    navigateTo(url.pathname.slice(appBase.length) || '/', false);
+  });
+
+  window.addEventListener('popstate', render);
+  window.addEventListener('load', () => {
+    migrateLegacyHashRoute();
+    render();
+  });
 
   // Бургер-меню на мобильном: открыть/закрыть и закрыть при переходе по ссылке
   (function initNavToggle() {

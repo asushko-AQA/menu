@@ -9,20 +9,29 @@
   <meta name="mobile-web-app-capable" content="yes">
   <title>Меню</title>
   <link rel="stylesheet" href="css/style.css">
+  <script>
+    (function () {
+      var redirectPath = sessionStorage.getItem('menu-redirect-path');
+      if (!redirectPath) return;
+      sessionStorage.removeItem('menu-redirect-path');
+      if (redirectPath.indexOf('/menu') !== 0) return;
+      history.replaceState(null, '', redirectPath);
+    })();
+  </script>
 </head>
 <body>
   <div id="app">
     <header class="header">
-      <a href="#/" class="logo">Меню</a>
+      <a href="/menu/" class="logo">Меню</a>
       <button type="button" class="nav-toggle" aria-label="Открыть меню" aria-expanded="false"><span></span></button>
       <nav class="nav" id="nav">
-        <a href="#/">Недели</a>
-        <a href="#/list/zakupki-na-nedelyu">Закупки</a>
-        <a href="#/list/zavtraki">Завтраки</a>
-        <a href="#/list/obedy">Обеды</a>
-        <a href="#/list/poldnik">Полдник</a>
-        <a href="#/list/uzhiny">Ужины</a>
-        <a href="#/tips/zagotovki">Заготовки</a>
+        <a href="/menu/">Недели</a>
+        <a href="/menu/list/zakupki-na-nedelyu">Закупки</a>
+        <a href="/menu/list/zavtraki">Завтраки</a>
+        <a href="/menu/list/obedy">Обеды</a>
+        <a href="/menu/list/poldnik">Полдник</a>
+        <a href="/menu/list/uzhiny">Ужины</a>
+        <a href="/menu/tips/zagotovki">Заготовки</a>
       </nav>
       <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
     </header>

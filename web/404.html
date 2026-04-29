@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Redirecting…</title>
+</head>
+<body>
+  <script>
+    (function () {
+      var path = window.location.pathname + window.location.search + window.location.hash;
+      sessionStorage.setItem('menu-redirect-path', path);
+      window.location.replace('/menu/');
+    })();
+  </script>
+</body>
+</html>
