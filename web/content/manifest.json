@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-29T22:07:32.048Z",
+  "generatedAt": "2026-10-23T12:49:49.495Z",
   "menus": [
     {
       "id": "nedelya-1",
@@ -99,6 +99,10 @@
       "file": "dishes/borshch.md"
     },
     {
+      "slug": "buterbrody-rozhitsy-indejka",
+      "file": "dishes/buterbrody-rozhitsy-indejka.md"
+    },
+    {
       "slug": "chaj-travyanoj-pechene-poldnik",
       "file": "dishes/chaj-travyanoj-pechene-poldnik.md"
     },
@@ -109,6 +113,10 @@
     {
       "slug": "chia-puding-bl",
       "file": "dishes/chia-puding-bl.md"
+    },
+    {
+      "slug": "chili-myagkij-govyadina-fasol",
+      "file": "dishes/chili-myagkij-govyadina-fasol.md"
     },
     {
       "slug": "cvetnaya-kapusta-zapekanka-kuritsa",
@@ -129,6 +137,10 @@
     {
       "slug": "file-ryby-syrnaya-shapka",
       "file": "dishes/file-ryby-syrnaya-shapka.md"
+    },
+    {
+      "slug": "frikadelki-indejka-syrnyj-sous-pasta",
+      "file": "dishes/frikadelki-indejka-syrnyj-sous-pasta.md"
     },
     {
       "slug": "fruktovye-roll-lavash",
@@ -175,6 +187,14 @@
       "file": "dishes/jogurt-bl-frukty-poldnik.md"
     },
     {
+      "slug": "jogurtovoe-morozhenoe-yagody",
+      "file": "dishes/jogurtovoe-morozhenoe-yagody.md"
+    },
+    {
+      "slug": "kabachkovye-lodochki-farsh",
+      "file": "dishes/kabachkovye-lodochki-farsh.md"
+    },
+    {
       "slug": "kabachkovye-oladi",
       "file": "dishes/kabachkovye-oladi.md"
     },
@@ -185,6 +205,10 @@
     {
       "slug": "kartofelnaya-zapekanka-ryba",
       "file": "dishes/kartofelnaya-zapekanka-ryba.md"
+    },
+    {
+      "slug": "kesadilya-kuritsa-syr",
+      "file": "dishes/kesadilya-kuritsa-syr.md"
     },
     {
       "slug": "kisel-yagodnyj",
@@ -207,6 +231,14 @@
       "file": "dishes/kurinoe-file-soevomed-sous-ris.md"
     },
     {
+      "slug": "kurinye-kotletki-brokkoli-syr",
+      "file": "dishes/kurinye-kotletki-brokkoli-syr.md"
+    },
+    {
+      "slug": "kurinye-kusochki-jogurtovyj-marinad",
+      "file": "dishes/kurinye-kusochki-jogurtovyj-marinad.md"
+    },
+    {
       "slug": "kurinye-makarony-odna-kastryulya",
       "file": "dishes/kurinye-makarony-odna-kastryulya.md"
     },
@@ -221,6 +253,10 @@
     {
       "slug": "kurochka-vok-risovaya-lapsha",
       "file": "dishes/kurochka-vok-risovaya-lapsha.md"
+    },
+    {
+      "slug": "lazanya-farsh-bl",
+      "file": "dishes/lazanya-farsh-bl.md"
     },
     {
       "slug": "lenivaya-ovsyanka-banki",
@@ -243,16 +279,40 @@
       "file": "dishes/mannaya-kasha-yagodnyj-sous.md"
     },
     {
+      "slug": "mini-burgery-indejka",
+      "file": "dishes/mini-burgery-indejka.md"
+    },
+    {
+      "slug": "mini-burrito-yajtso-fasol",
+      "file": "dishes/mini-burrito-yajtso-fasol.md"
+    },
+    {
       "slug": "mjusli-bl-jogurt",
       "file": "dishes/mjusli-bl-jogurt.md"
+    },
+    {
+      "slug": "myasnoj-rulet-yajtso",
+      "file": "dishes/myasnoj-rulet-yajtso.md"
     },
     {
       "slug": "myasnye-gnezda-bl-syr",
       "file": "dishes/myasnye-gnezda-bl-syr.md"
     },
     {
+      "slug": "myasnye-keksy-pyure",
+      "file": "dishes/myasnye-keksy-pyure.md"
+    },
+    {
       "slug": "omlet-ovoshchi-duhovka",
       "file": "dishes/omlet-ovoshchi-duhovka.md"
+    },
+    {
+      "slug": "omlet-pitstsa",
+      "file": "dishes/omlet-pitstsa.md"
+    },
+    {
+      "slug": "omletnye-rulety-vetchina-syr",
+      "file": "dishes/omletnye-rulety-vetchina-syr.md"
     },
     {
       "slug": "ovsyanka-karamel-yabloki",
@@ -279,8 +339,20 @@
       "file": "dishes/pankeyki-bl-moloko.md"
     },
     {
+      "slug": "pashtet-kuritsa-hlebtsy",
+      "file": "dishes/pashtet-kuritsa-hlebtsy.md"
+    },
+    {
       "slug": "pasta-tunets",
       "file": "dishes/pasta-tunets.md"
+    },
+    {
+      "slug": "pechenochnye-oladi-yabloko",
+      "file": "dishes/pechenochnye-oladi-yabloko.md"
+    },
+    {
+      "slug": "pizza-lavash-indejka",
+      "file": "dishes/pizza-lavash-indejka.md"
     },
     {
       "slug": "plov-kuritsa",
@@ -335,6 +407,10 @@
       "file": "dishes/shakshuka.md"
     },
     {
+      "slug": "shaurma-roll-kuritsa",
+      "file": "dishes/shaurma-roll-kuritsa.md"
+    },
+    {
       "slug": "shi-kapusta",
       "file": "dishes/shi-kapusta.md"
     },
@@ -355,6 +431,10 @@
       "file": "dishes/spagetti-boloneze.md"
     },
     {
+      "slug": "sup-fasolevyj-indejka",
+      "file": "dishes/sup-fasolevyj-indejka.md"
+    },
+    {
       "slug": "sup-s-frikadelkami",
       "file": "dishes/sup-s-frikadelkami.md"
     },
@@ -367,6 +447,14 @@
       "file": "dishes/syrniki-bl-tvorog.md"
     },
     {
+      "slug": "syrnyj-sup-kuritsa",
+      "file": "dishes/syrnyj-sup-kuritsa.md"
+    },
+    {
+      "slug": "taco-farsh-fasol",
+      "file": "dishes/taco-farsh-fasol.md"
+    },
+    {
       "slug": "tefteli-tomatnyj-sous",
       "file": "dishes/tefteli-tomatnyj-sous.md"
     },
@@ -377,6 +465,10 @@
     {
       "slug": "tost-yaichnyj-salat",
       "file": "dishes/tost-yaichnyj-salat.md"
+    },
+    {
+      "slug": "tunets-kartofelnye-kotletki",
+      "file": "dishes/tunets-kartofelnye-kotletki.md"
     },
     {
       "slug": "tvorog-banan-orekhi",
@@ -395,6 +487,26 @@
       "file": "dishes/tvorozhnaya-zapekanka-manka.md"
     },
     {
+      "slug": "tvorozhnye-maffiny-yagody",
+      "file": "dishes/tvorozhnye-maffiny-yagody.md"
+    },
+    {
+      "slug": "tvorozhnye-pankeyki-banan",
+      "file": "dishes/tvorozhnye-pankeyki-banan.md"
+    },
+    {
+      "slug": "tvorozhnye-sharyki-kunzhut",
+      "file": "dishes/tvorozhnye-sharyki-kunzhut.md"
+    },
+    {
+      "slug": "tvorozhnyj-kokteyl-banan-kakao",
+      "file": "dishes/tvorozhnyj-kokteyl-banan-kakao.md"
+    },
+    {
+      "slug": "tykvennyj-sup-kuritsa",
+      "file": "dishes/tykvennyj-sup-kuritsa.md"
+    },
+    {
       "slug": "yabloki-zapechyonnye-tvorog",
       "file": "dishes/yabloki-zapechyonnye-tvorog.md"
     },
@@ -411,8 +523,16 @@
       "file": "dishes/yajtso-v-oblake.md"
     },
     {
+      "slug": "zakusochnaya-tarelka",
+      "file": "dishes/zakusochnaya-tarelka.md"
+    },
+    {
       "slug": "zapech-goleni-kartofel",
       "file": "dishes/zapech-goleni-kartofel.md"
+    },
+    {
+      "slug": "zapechennaya-ovsyanka-tvorog-yagody",
+      "file": "dishes/zapechennaya-ovsyanka-tvorog-yagody.md"
     },
     {
       "slug": "zharkoe-svinina-kabachki",

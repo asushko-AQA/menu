@@ -1,12 +1,13 @@
 # Меню: Завтраки
 
-Раздел завтраков. Критерии: [docs/criteria/audience-and-constraints.md](../criteria/audience-and-constraints.md). Всего **31 вариант** (включая несладкие и смешанные блюда для **5-й недели** цикла).
+Раздел завтраков. Критерии: [docs/criteria/audience-and-constraints.md](../criteria/audience-and-constraints.md). Всего **37 вариантов**; в цикле из 5 недель используется 35, остальные — запасные (заготовки гранола и мюсли).
 
 ## Цель
 
-- **31 вариант** завтраков для семьи из 5 человек (включая несладкие позиции для длинного цикла).
-- Время приготовления до 40 минут (запеканки и блины могут быть до ~45 мин), без супердорогих продуктов, молочное — безлактозное.
-- Цикл **5 недель** — см. [меню по неделям](nedelya-1.md); повторы одного и того же завтрака в одну неделю не делаем.
+- **37 вариантов** завтраков для семьи из 5 человек: каши, яйца, творог, блины и оладьи, несладкие «ужинные» завтраки.
+- **Упор на белок:** в каждом завтраке есть яйца, творог БЛ, сыр, йогурт БЛ или мясо (ветчина, индейка) — на семью в среднем ≈ 90–110 г белка за приём; каши подаются с белковой добавкой (яйцо, творог, густой йогурт).
+- Время приготовления до 40 минут (запеканки и блины могут быть до ~45 мин), без дорогих продуктов, молочное — только безлактозное (БЛ).
+- Цикл **5 недель** — см. [меню по неделям](nedelya-1.md); повторы одного и того же завтрака в одну неделю не делаем. Для детей — «весёлая» подача: рожицы, роллы, мини-буррито, омлет-«пицца».
 
 ## Список блюд
 
@@ -32,7 +33,7 @@
 | 18 | Кабачковые оладьи | [kabachkovye-oladi.md](../dishes/kabachkovye-oladi.md) | ~25 мин |
 | 19 | Домашняя гранола | [domashnyaya-granola.md](../dishes/domashnyaya-granola.md) | 0 мин (заготовка заранее) |
 | 20 | Горячие бутерброды «Лодки» | [gorjachie-buterbrody-lodki.md](../dishes/gorjachie-buterbrody-lodki.md) | ~15–20 мин |
-| 21 | Овсяноблин | [ovsyanoblin.md](../dishes/ovsyanoblin.md) | ~15–20 мин |
+| 21 | Овсяноблин с творожной начинкой | [ovsyanoblin.md](../dishes/ovsyanoblin.md) | ~15–20 мин |
 | 22 | Запечённые яблоки с творогом БЛ | [yabloki-zapechyonnye-tvorog.md](../dishes/yabloki-zapechyonnye-tvorog.md) | ~35–40 мин |
 | 23 | Панкейки на БЛ молоке | [pankeyki-bl-moloko.md](../dishes/pankeyki-bl-moloko.md) | ~25–30 мин |
 | 24 | Манная каша с ягодным соусом | [mannaya-kasha-yagodnyj-sous.md](../dishes/mannaya-kasha-yagodnyj-sous.md) | ~15–20 мин |
@@ -43,6 +44,12 @@
 | 29 | Гречневые блины на БЛ молоке | [grechnevye-bliny-bl-moloko.md](../dishes/grechnevye-bliny-bl-moloko.md) | ~30 мин |
 | 30 | Тост с хумусом и яйцом | [tost-hummus-yajtso.md](../dishes/tost-hummus-yajtso.md) | ~15 мин |
 | 31 | Творожная намазка на хлебе (несладкий завтрак) | [tvorozhnaya-namazka-hleb.md](../dishes/tvorozhnaya-namazka-hleb.md) | ~10 мин |
+| 32 | Омлетные роллы с ветчиной и сыром | [omletnye-rulety-vetchina-syr.md](../dishes/omletnye-rulety-vetchina-syr.md) | ~20 мин |
+| 33 | Мини-буррито с яйцом, фасолью и сыром | [mini-burrito-yajtso-fasol.md](../dishes/mini-burrito-yajtso-fasol.md) | ~20 мин |
+| 34 | Творожные панкейки с бананом | [tvorozhnye-pankeyki-banan.md](../dishes/tvorozhnye-pankeyki-banan.md) | ~25 мин |
+| 35 | Запечённая овсянка с творогом и ягодами | [zapechennaya-ovsyanka-tvorog-yagody.md](../dishes/zapechennaya-ovsyanka-tvorog-yagody.md) | ~10 мин |
+| 36 | Омлет-«пицца» на сковороде | [omlet-pitstsa.md](../dishes/omlet-pitstsa.md) | ~20–25 мин |
+| 37 | Бутерброды-«рожицы» с творожной намазкой и индейкой | [buterbrody-rozhitsy-indejka.md](../dishes/buterbrody-rozhitsy-indejka.md) | ~15 мин |
 
 ## Ротация на 5 недель
 

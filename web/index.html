@@ -3,13 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#c45c26">
+  <title>Меню — семейное меню на 5 недель</title>
+  <meta name="description" content="Семейное меню на 5 недель: завтраки, обеды, полдники и ужины, карточки блюд, списки закупок и заготовки.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbf7f1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#17130f" media="(prefers-color-scheme: dark)">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="mobile-web-app-capable" content="yes">
-  <title>Меню</title>
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="Меню — семейное меню на 5 недель">
+  <meta property="og:description" content="Завтраки, обеды, полдники и ужины, карточки блюд, закупки и заготовки.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%B2%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="css/style.css">
   <script>
+    // Тема: применяем до первой отрисовки, чтобы не было «вспышки».
+    (function () {
+      try {
+        var t = localStorage.getItem('menu-theme');
+        if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+    // Восстановление маршрута после редиректа с 404.html (GitHub Pages).
     (function () {
       var redirectPath = sessionStorage.getItem('menu-redirect-path');
       if (!redirectPath) return;
@@ -18,26 +34,52 @@
       history.replaceState(null, '', redirectPath);
     })();
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
+  <script src="js/app.js" defer></script>
 </head>
 <body>
-  <div id="app">
-    <header class="header">
-      <a href="/menu/" class="logo">Меню</a>
-      <button type="button" class="nav-toggle" aria-label="Открыть меню" aria-expanded="false"><span></span></button>
-      <nav class="nav" id="nav">
-        <a href="/menu/">Недели</a>
-        <a href="/menu/list/zakupki-na-nedelyu">Закупки</a>
-        <a href="/menu/list/zavtraki">Завтраки</a>
-        <a href="/menu/list/obedy">Обеды</a>
-        <a href="/menu/list/poldnik">Полдник</a>
-        <a href="/menu/list/uzhiny">Ужины</a>
-        <a href="/menu/tips/zagotovki">Заготовки</a>
-      </nav>
-      <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">К содержимому</a>
+
+  <div id="app" class="app">
+    <header class="header" id="header">
+      <div class="header-inner">
+        <a href="/menu/" class="brand" data-route="/" aria-label="Меню — на главную">
+          <span class="brand-mark" aria-hidden="true">🍲</span>
+          <span class="brand-name">Меню</span>
+        </a>
+
+        <nav class="nav" id="nav" aria-label="Основная навигация">
+          <a href="/menu/" data-route="/" data-nav="home"><span class="nav-icon" aria-hidden="true">📅</span>Недели</a>
+          <a href="/menu/list/zakupki-na-nedelyu" data-route="/list/zakupki-na-nedelyu" data-nav="zakupki"><span class="nav-icon" aria-hidden="true">🛒</span>Закупки</a>
+          <a href="/menu/list/zavtraki" data-route="/list/zavtraki" data-nav="zavtraki"><span class="nav-icon" aria-hidden="true">☀️</span>Завтраки</a>
+          <a href="/menu/list/obedy" data-route="/list/obedy" data-nav="obedy"><span class="nav-icon" aria-hidden="true">🍲</span>Обеды</a>
+          <a href="/menu/list/poldnik" data-route="/list/poldnik" data-nav="poldnik"><span class="nav-icon" aria-hidden="true">🍎</span>Полдник</a>
+          <a href="/menu/list/uzhiny" data-route="/list/uzhiny" data-nav="uzhiny"><span class="nav-icon" aria-hidden="true">🌙</span>Ужины</a>
+          <a href="/menu/tips/zagotovki" data-route="/tips/zagotovki" data-nav="zagotovki"><span class="nav-icon" aria-hidden="true">🥡</span>Заготовки</a>
+        </nav>
+
+        <div class="header-actions">
+          <button type="button" class="icon-btn theme-toggle" id="theme-toggle" aria-label="Переключить тему" title="Тема">
+            <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="currentColor"/></svg>
+            <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M5.3 18.7 7 17M17 7l1.7-1.7"/></g></svg>
+          </button>
+          <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
+            <span class="burger" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
     </header>
-    <main id="main" class="main"></main>
+    <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
+    <main id="main" class="main" tabindex="-1">
+      <noscript>
+        <p class="notice">Для работы приложения нужен включённый JavaScript.</p>
+      </noscript>
+    </main>
+
+    <footer class="footer">
+      <p>Семейное меню · 5 недель · на 5 человек · молочное — только БЛ</p>
+    </footer>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script src="js/app.js"></script>
 </body>
 </html>
