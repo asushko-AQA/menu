@@ -1,0 +1,7 @@
+{
+  "name": "menu",
+  "private": true,
+  "engines": {
+    "node": ">=26.13.1"
+  }
+}
